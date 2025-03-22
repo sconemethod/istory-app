@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: istory
+      MYSQL_USER: dangtong
+      MYSQL_PASSWORD: admin123
+    ports:
+      - "3306:3306"
+    volumes:
+      # - ./data:/var/lib/mysql
+      #호스트 경로 대신 도커 볼륨 사용
+      - mysql_data:/var/lib/mysql
+  
+volumes:
+  mysql_data: #도커 볼륨 정의
+      
